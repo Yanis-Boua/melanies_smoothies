@@ -10,8 +10,8 @@ st.write(
 
 #import streamlit as st
 
-title=st.text_input('Title', 'Entrez votre nom')
-st.write('The current title is', title)
+title=st.text_input('Name on Smoothie', 'Entrez votre nom')
+st.write('The name on your smoothie will be : ', title)
 
 cnx=st.connection("snowflake")
 session=cnx.session()
@@ -39,7 +39,11 @@ if ingredients_list:
     #st.write(my_insert_stmt)
     #st.stop()
     time_to_insert=st.button('Submit Order')
-    
+
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
         st.success(title+', Your Smoothie is ordered!', icon="✅")
+
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
