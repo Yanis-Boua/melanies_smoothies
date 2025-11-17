@@ -10,8 +10,8 @@ st.write(
 
 #import streamlit as st
 
-title=st.text_input('Movie title', 'Life of Brian')
-st.write('The current movie title is', title)
+title=st.text_input('Title', 'Entrez votre nom')
+st.write('The current title is', title)
 
 cnx=st.connection("snowflake")
 session=cnx.session()
