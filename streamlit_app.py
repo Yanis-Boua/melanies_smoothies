@@ -13,8 +13,8 @@ st.write(
 title=st.text_input('Title', 'Entrez votre nom')
 st.write('The current title is', title)
 
-cnx=st.connection("snowflake")
-session=cnx.session()
+#cnx=st.connection("snowflake")
+#session=cnx.session()
 
 session = get_active_session()
 my_dataframe = session.table("smoothies.public.fruit_options").select (col('FRUIT_NAME'))
